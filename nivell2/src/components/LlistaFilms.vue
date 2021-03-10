@@ -1,6 +1,6 @@
 <template>
     <div class="container mt-2 pb-2 d-flex flex-wrap justify-content-between align-content-start" id="llista">
-        <div class="card mt-2" v-for="SelectedMovie of SelectedMovies" :key="SelectedMovie.id">
+        <div class="card mt-2" v-for="SelectedMovie of $store.getters.GetMovies" :key="SelectedMovie.id">
             <div class="card-header">
                 <h5>{{SelectedMovie.title}}</h5>
                 <span>Available: {{SelectedMovie.available}}</span>

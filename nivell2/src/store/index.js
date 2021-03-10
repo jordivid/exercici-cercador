@@ -26,7 +26,9 @@ export default new Vuex.Store({
       let movieRefresh = [];
 
       for(const movie of movies) {
-        movieRefresh.push(movie);
+        if(movie.available === state.filters.available) {
+          movieRefresh.push(movie);
+        }
       }
       movies = movieRefresh;
       return movies;

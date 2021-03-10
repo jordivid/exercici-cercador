@@ -26,7 +26,20 @@ export default new Vuex.Store({
       let movieRefresh = [];
 
       for(const movie of movies) {
-        movieRefresh.push(movie);
+        let cerca = state.filters.search.toLowerCase();
+        let titol = "";
+        
+        if(movie.available === state.filters.available){
+          titol = movie.title.toLowerCase();
+          if(state.filters.search.length > 2) {
+            if(titol.includes(cerca)) {
+              movieRefresh.push(movie);
+            }
+          } else {
+            movieRefresh.push(movie);
+          }
+        }
+
       }
       movies = movieRefresh;
       return movies;
